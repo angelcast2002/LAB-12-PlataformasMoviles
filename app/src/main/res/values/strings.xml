@@ -37,4 +37,6 @@
     <string name="text_angelCastellanos_loginLayout">Angel Castellanos</string>
     <string name="credencialesAceptadas">cas21700@uvg.edu.gt</string>
     <string name="correoAceptado_loginFragment">cas21700@uvg.edu.gt</string>
+    <string name="textBt_mantenerSesion_homeLayout">Mantener sesión abierta</string>
+    <string name="textBt_cerrarSesion_homeLayout">cerrar sesión</string>
 </resources>

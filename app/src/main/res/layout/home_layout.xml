@@ -8,6 +8,57 @@
     tools:context=".fragments.HomeFragment"
     android:background="@color/white"
     tools:visibility="visible">
-    
+
+    <Button
+        android:id="@+id/bt_sesionAbierta_homeLayout"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bt_cerrarSesion_homeLayout"
+
+        android:layout_marginHorizontal="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+
+        android:text="@string/textBt_mantenerSesion_homeLayout"
+        />
+
+    <Button
+        android:id="@+id/bt_cerrarSesion_homeLayout"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@+id/bt_sesionAbierta_homeLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bt_default_homeLayout"
+
+        android:layout_marginHorizontal="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+
+        android:text="@string/textBt_cerrarSesion_homeLayout"
+        />
+
+    <Button
+        android:id="@+id/bt_default_homeLayout"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@+id/bt_cerrarSesion_homeLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf=""
+        app:layout_constraintBottom_toTopOf=""
+
+        android:layout_marginHorizontal="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+
+        android:text="@string/textBt_cerrarSesion_homeLayout"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

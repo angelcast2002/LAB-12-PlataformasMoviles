@@ -58,6 +58,7 @@ class SessionViewModel: ViewModel() {
     fun regresiveCount(){
         job = viewModelScope.launch {
             delay(30000L)
+            //delay(5000L) //tiempo para testear
             _validAuthToken.value = false
             _logger.value = logStatus.notLogged
         }
@@ -70,7 +71,8 @@ class SessionViewModel: ViewModel() {
     fun stop() {
         if (this::job.isInitialized && job.isActive) {
             job.cancel()
-            _logger.value = logStatus.logged
+            _logger.value = logStatus.notLogged
+
         }
     }
 }

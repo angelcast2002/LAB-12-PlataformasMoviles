@@ -36,7 +36,6 @@ class HomeFragment: Fragment() {
 
         setListeners()
         setObservers()
-        sessionViewModel.regresiveCount()
 
     }
 
@@ -52,22 +51,6 @@ class HomeFragment: Fragment() {
         }
 
         lifecycleScope.launch{
-            homeViewModel.progressBar.collectLatest { progressValue ->
-                if (!progressValue){
-                    binding.progressHomeLayout.visibility = View.GONE
-                    binding.imageHomeLayout.visibility = View.VISIBLE
-                    binding.textStatusHomeLayout.visibility = View.VISIBLE
-                }
-
-                else {
-                    binding.progressHomeLayout.visibility = View.VISIBLE
-                    binding.imageHomeLayout.visibility = View.GONE
-                    binding.textStatusHomeLayout.visibility = View.GONE
-                }
-            }
-        }
-
-        lifecycleScope.launchWhenStarted {
             homeViewModel.status.collectLatest {
                 handleCheckInStatus(it)
             }
@@ -79,7 +62,6 @@ class HomeFragment: Fragment() {
         when(status){
 
             is HomeViewModel.Status.default -> {
-                homeViewModel.progressBar()
                 lifecycleScope.launch{
                     homeViewModel.progressBar.collectLatest { progressValue ->
                         if (!progressValue){
@@ -91,6 +73,10 @@ class HomeFragment: Fragment() {
                                 btSuccesHomeLayout.isEnabled = true
                                 btFailureHomeLayout.isEnabled = true
                                 btEmptyHomeLayout.isEnabled = true
+                                imageHomeLayout.setImageDrawable(
+                                    ResourcesCompat.getDrawable(resources, R.drawable.ic_default, null)
+                                )
+                                textStatusHomeLayout.text = status.message
                             }
                         }
 
@@ -114,7 +100,6 @@ class HomeFragment: Fragment() {
             }
 
             is HomeViewModel.Status.empty -> {
-                homeViewModel.progressBar()
                 lifecycleScope.launch{
                     homeViewModel.progressBar.collectLatest { progressValue ->
                         if (!progressValue){
@@ -126,6 +111,10 @@ class HomeFragment: Fragment() {
                                 btSuccesHomeLayout.isEnabled = true
                                 btFailureHomeLayout.isEnabled = true
                                 btEmptyHomeLayout.isEnabled = true
+                                imageHomeLayout.setImageDrawable(
+                                    ResourcesCompat.getDrawable(resources, R.drawable.ic_empty, null)
+                                )
+                                textStatusHomeLayout.text = status.message
                             }
                         }
 
@@ -149,7 +138,6 @@ class HomeFragment: Fragment() {
             }
 
             is HomeViewModel.Status.failure -> {
-                homeViewModel.progressBar()
                 lifecycleScope.launch{
                     homeViewModel.progressBar.collectLatest { progressValue ->
                         if (!progressValue){
@@ -161,6 +149,10 @@ class HomeFragment: Fragment() {
                                 btSuccesHomeLayout.isEnabled = true
                                 btFailureHomeLayout.isEnabled = true
                                 btEmptyHomeLayout.isEnabled = true
+                                imageHomeLayout.setImageDrawable(
+                                    ResourcesCompat.getDrawable(resources, R.drawable.ic_failure, null)
+                                )
+                                textStatusHomeLayout.text = status.message
                             }
                         }
 
@@ -184,7 +176,6 @@ class HomeFragment: Fragment() {
             }
 
             is HomeViewModel.Status.succes -> {
-                homeViewModel.progressBar()
                 lifecycleScope.launch{
                     homeViewModel.progressBar.collectLatest { progressValue ->
                         if (!progressValue){
@@ -196,6 +187,10 @@ class HomeFragment: Fragment() {
                                 btSuccesHomeLayout.isEnabled = true
                                 btFailureHomeLayout.isEnabled = true
                                 btEmptyHomeLayout.isEnabled = true
+                                imageHomeLayout.setImageDrawable(
+                                    ResourcesCompat.getDrawable(resources, R.drawable.ic_succes, null)
+                                )
+                                textStatusHomeLayout.text = status.message
                             }
                         }
 

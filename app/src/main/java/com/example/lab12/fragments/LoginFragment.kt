@@ -76,6 +76,7 @@ class LoginFragment: Fragment() {
             }
 
             is SessionViewModel.logStatus.logged -> {
+                sessionViewModel.regresiveCount()
                 requireView().findNavController().navigate(
                     LoginFragmentDirections.actionLoginFragmentToHomeFragment()
                 )

@@ -40,18 +40,22 @@ class HomeViewModel : ViewModel(){
     }
 
     fun Default(){
+        progressBar()
         _status.value = Status.default(DEAFULT_MESSAGE_HOME_VIEWMODEL)
     }
 
     fun Succes(){
+        progressBar()
         _status.value = Status.succes(SUCCES_MESSAGE_HOME_VIEWMODEL)
     }
 
     fun Failure(){
+        progressBar()
         _status.value = Status.failure(FAILURE_MESSAGE_HOME_VIEWMODEL)
     }
 
     fun Empty(){
+        progressBar()
         _status.value = Status.empty(EMPTY_MESSAGE_HOME_VIEWMODEL)
     }
 
